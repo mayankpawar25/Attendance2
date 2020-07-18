@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "action-sdk-sunny": "1.0.21",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "uuid": "^8.0.0"
     }
 }
