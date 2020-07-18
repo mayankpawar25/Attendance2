@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Create View</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Create Question
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- <script src="./node_modules/action-sdk-sunny/dist/ActionSDK.min.js" crossorigin="anonymous"></script> -->
+    <link href="css/style-default.css" rel="stylesheet" id="theme" />
+
+</head>
+
+<body>
+
+    <form class="sec1">
+        <div class="section-1">
+            <div class="container pt-4">
+                <div id="root">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label><strong>Clock-in time </strong></label>
+                            <input type="text" class="in-t form-control" id="attendance-time" value="" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container pb-5">
+                <div class="card-box">
+                    <div class="form-group pb-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label><strong>Select status</strong></label>
+                                <ul id="tabs" class="nav nav-tabs">
+                                    <li class="nav-item"><a href="" data-target="#present" data-toggle="tab"
+                                            class="nav-link small text-uppercase active">Present</a></li>
+                                    <li class="nav-item"><a href="" data-target="#absent" data-toggle="tab"
+                                            class="nav-link small text-uppercase">Absent</a></li>
+                                </ul>
+                                <br>
+                                <div id="tabsContent" class="tab-content">
+                                    <div id="present" class="tab-pane fade active show">
+                                       <div class="form-group">
+                                            <label>Location</label>
+                                            <img src="images/map.png" class="img-fluid" />
+                                            <p id="address">WebCraft IT - 96-FB, Sch.94, Near Pipliyahana Square, Eastern Ring Rd, Indore,
+                                                Madhya
+                                                Pradesh</p>
+                                        </div>
+                                        <div class="form-group hide">
+                                            <label><strong>Latitude </strong></label>
+                                            <input type="text" class="in-t form-control" id="latitude" value="22.714777599999998" />
+                                        </div>
+                                        
+                                        <div class="form-group hide">
+                                            <label><strong>Longitude</strong></label>
+                                            <input type="text" class="in-t form-control" id="longitutde" value="75.9103488" />
+                                        </div>
+
+                                        <div class="form-group hide">
+                                            <label><strong>Status </strong></label>
+                                            Present <input type="radio" name="status" id="present-status" value="Present" checked />
+                                            Absent <input type="radio" name="status" id="absent-status" value="Absent" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Notes (Optional) </label>
+                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes"
+                                                aria-describedby="basic-addon2" id="notes">
+                                        </div>
+                                    </div>
+                                    <div id="absent" class="tab-pane fade">
+                                        <div class="form-group">
+                                            <label>Notes (Optional) </label>
+                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes"
+                                                aria-describedby="basic-addon2" id="absent-notes">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-padd bt">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-9">
+                            <a class="theme-color cursur-pointer show-timeline" id="hide1">
+                                <svg id="Capa_1" enable-background="new 0 0 443.294 443.294" viewBox="0 0 443.294 443.294" class="gt ha gs"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z" />
+                                    <path d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z" /></svg>
+                                <span id="due"></span>
+                            </a>
+
+                        </div>
+                        <div class="col-3 text-right"> <button type="button" class="btn btn-primary btn-sm pull-right"
+                                id="submit"> Submit</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title app-black-color" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body app-black-color">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Back</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="save-changes">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button> -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="CreateView.js"></script>
+</body>
+
+</html>

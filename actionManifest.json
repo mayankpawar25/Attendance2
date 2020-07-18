@@ -1,0 +1,52 @@
+{
+    "id": "com.microsoft.sample.attendance.mike18072001",
+    "name": "Attendance",
+    "description": "Mark Attendance",
+    "provider": {
+        "name": "Microsoft",
+        "websiteUrl": "https://www.microsoft.com/",
+        "privacyUrl": "https://www.microsoft.com/privacy",
+        "termsOfUseUrl": "https://www.microsoft.com/app-tos"
+    },
+    "icon": "images/appIcon.png",
+    "actionModel": "actionModel.json",
+    "version": "1.0.19",
+    "views": {
+        "CardView": {
+            "sourceLocation": "json/cardView.json"
+        },
+        "LaunchView": {
+            "sourceLocation": "html/createView.html",
+            "header": "Mark Attendance"
+        },
+        "UpdateView": {
+            "sourceLocation": "html/updateView.html",
+            "header": "Submit your Attendance"
+        },
+        "DetailView": {
+            "sourceLocation": "html/detailView.html",
+            "header": "Attendance Card"
+        }
+    },
+    "localizationInfo": {
+        "defaultLocale": "en-us",
+        "localeFiles": {
+            "en-us": "strings/strings.json"
+        }
+    },
+    "devicePermissions": [
+        "geolocation",
+        "media",
+        "notifications",
+        "midi",
+        "openExternal"
+    ],
+    "whitelistedUrlDomains": [
+        "ajax.googleapis.com",
+        "cdnjs.cloudflare.com",
+        "maxcdn.bootstrapcdn.com",
+        "ajax.aspnetcdn.com",
+        "int.actions.office365.com",
+        "www.webcraft.co.in"
+    ]
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./node_modules/action-sdk-sunny/dist/ActionSDK.min.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .bg-primary {
+            background-color: #4e508a !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container pt-4" id="root">
+    </div>
+
+    <div class="hide">
+        <!--  Tab section  -->
+        <div class="tabs-content">
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Responders</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Non Responders</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <table class="table" cellspacing="0" id="responder-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-right">Response Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <table class="table" cellspacing="0" id="non-responder-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!--  Question Result Section  -->
+    <div class="container attendance-content pt-4 hide">
+        <div id="root" class="card">
+            <div class="form-group">
+                <p id="name">You</p>
+                <h4>Attendance Card</h4>
+                <label id="action-status">Action is Closed</label>
+            </div>
+        </div>
+
+        <div id="root" class="card">
+            <div class="form-group">
+                <h4>My Responses</h4>
+                <label>Response </label><br>
+                <small id="dueby">Wed, 8 Jul, 12:56</small>
+                <div>
+                    <ol class="list-design">
+                        <li>
+                            <label>Responder Location</label>
+                            <br>
+                            <small id="address">WebCraft IT - 96-FB, Sch.94, Near Pipliyahana Square, Eastern Ring Rd,
+                                Indore, Madhya
+                                Pradesh</small>
+                            <small id="lat"></small>
+                            <small id="long"></small>
+                        </li>
+                        <li>
+                            <label>Photo to mark Attendance</label>
+                            <img src="images/map.png" class="img-responsive w-100" id="photo" />
+                        </li>
+                        <li>
+                            <label>Notes - (optional)</label>
+                            <br>
+                            <small><b id="notes">Not Responded</b></small>
+                        </li>
+                    </ol>
+                    <hr>
+                    <button class="btn btn-primary float-right back">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <script src="DetailView.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
