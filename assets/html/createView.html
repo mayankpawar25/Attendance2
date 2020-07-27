@@ -37,55 +37,48 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label><strong>Select status</strong></label>
-                                <ul id="tabs" class="nav nav-tabs">
-                                    <li class="nav-item"><a href="" data-target="#present" data-toggle="tab"
-                                            class="nav-link small text-uppercase active">Present</a></li>
-                                    <li class="nav-item"><a href="" data-target="#absent" data-toggle="tab"
-                                            class="nav-link small text-uppercase">Absent</a></li>
+                                <ul id="tabs" class="nav nav-tabs nav-fill">
+                                    <li class="nav-item"><a href="" data-target="#present" data-toggle="tab" class="nav-link small text-uppercase active">Present</a></li>
+                                    <li class="nav-item"><a href="" data-target="#absent" data-toggle="tab" class="nav-link small text-uppercase">Absent</a></li>
                                 </ul>
                                 <br>
                                 <div id="tabsContent" class="tab-content">
                                     <div id="present" class="tab-pane fade active show">
-                                       <div class="form-group">
+                                        <div class="form-group">
                                             <label>Location</label>
                                             <img src="images/map.png" class="img-fluid" />
-                                            <p id="address">WebCraft IT - 96-FB, Sch.94, Near Pipliyahana Square, Eastern Ring Rd, Indore,
-                                                Madhya
-                                                Pradesh</p>
+                                            <p id="address">WebCraft IT - 96-FB, Sch.94, Near Pipliyahana Square, Eastern Ring Rd, Indore, Madhya Pradesh
+                                            </p>
                                         </div>
                                         <div class="form-group hide">
                                             <label><strong>Latitude </strong></label>
                                             <input type="text" class="in-t form-control" id="latitude" value="22.714777599999998" />
                                         </div>
-                                        
+
                                         <div class="form-group hide">
                                             <label><strong>Longitude</strong></label>
                                             <input type="text" class="in-t form-control" id="longitutde" value="75.9103488" />
                                         </div>
 
                                         <div class="form-group hide">
-                                            <label><strong>Status </strong></label>
-                                            Present <input type="radio" name="status" id="present-status" value="Present" checked />
-                                            Absent <input type="radio" name="status" id="absent-status" value="Absent" />
+                                            <label><strong>Status </strong></label> Present <input type="radio" name="status" id="present-status" value="Present" checked /> Absent <input type="radio" name="status" id="absent-status" value="Absent" />
                                         </div>
 
                                         <div class="form-group">
                                             <label>Notes (Optional) </label>
-                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes"
-                                                aria-describedby="basic-addon2" id="notes">
+                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes" aria-describedby="basic-addon2" id="notes">
                                         </div>
                                     </div>
                                     <div id="absent" class="tab-pane fade">
                                         <div class="form-group">
                                             <label>Notes (Optional) </label>
-                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes"
-                                                aria-describedby="basic-addon2" id="absent-notes">
+                                            <input type="text" class="form-control in-t" placeholder="Anything missing? Add notes here" aria-label="Notes" aria-describedby="basic-addon2" id="absent-notes">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>                
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,8 +89,7 @@
                     <div class="row">
                         <div class="col-9">
                             <a class="theme-color cursur-pointer show-timeline" id="hide1">
-                                <svg id="Capa_1" enable-background="new 0 0 443.294 443.294" viewBox="0 0 443.294 443.294" class="gt ha gs"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg id="Capa_1" enable-background="new 0 0 443.294 443.294" viewBox="0 0 443.294 443.294" class="gt ha gs" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="m221.647 0c-122.214 0-221.647 99.433-221.647 221.647s99.433 221.647 221.647 221.647 221.647-99.433 221.647-221.647-99.433-221.647-221.647-221.647zm0 415.588c-106.941 0-193.941-87-193.941-193.941s87-193.941 193.941-193.941 193.941 87 193.941 193.941-87 193.941-193.941 193.941z" />
                                     <path d="m235.5 83.118h-27.706v144.265l87.176 87.176 19.589-19.589-79.059-79.059z" /></svg>
@@ -105,8 +97,7 @@
                             </a>
 
                         </div>
-                        <div class="col-3 text-right"> <button type="button" class="btn btn-primary btn-sm pull-right"
-                                id="submit"> Submit</button></div>
+                        <div class="col-3 text-right"> <button type="button" class="btn btn-primary btn-sm pull-right" id="submit"> Submit</button></div>
                     </div>
                 </div>
             </div>
@@ -114,8 +105,7 @@
     </form>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
