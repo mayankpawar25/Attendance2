@@ -10,7 +10,7 @@
     },
     "icon": "images/appIcon.png",
     "actionModel": "actionModel.json",
-    "version": "1.0.19",
+    "version": "1.0.24",
     "views": {
         "CardView": {
             "sourceLocation": "json/cardView.json"
@@ -34,6 +34,7 @@
             "en-us": "strings/strings.json"
         }
     },
+    "showLoadingIndicator": true,
     "devicePermissions": [
         "geolocation",
         "media",
