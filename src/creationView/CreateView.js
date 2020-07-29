@@ -8,27 +8,58 @@ let validate = true;
 var question_section = $("#question-section div.container").clone();
 var opt = $("div#option-section .option-div").clone();
 
-$(document).ready(function () {    
+$(document).ready(function() {
     var dt = new Date();
     var time = ("00" + dt.getHours()).substr(-2) + ":" + ("00" + dt.getMinutes()).substr(-2);
     $('#attendance-time').val(time).prop({ 'min': time });
-    removeLoader();
+    let request = new actionSDK.GetContext.Request();
+    getTheme(request);
 });
-
-async function removeLoader() {
+async function getTheme(request) {
     await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+
+    let response = await actionSDK.executeApi(request);
+    let context = response.context;
+    $("form.section-1").show();
+    var theme = context.theme;
+    $("link#theme").attr("href", "css/style-" + theme + ".css");
+
+    $('form.sec1').append(form_section);
+    $('form.sec1').after(modal_section);
+    $('form.sec1').after(setting_section);
+    $('form.sec1').after(option_section);
+    $('form.sec1').after(questions_section);
+
+    question_section = $("#question-section div.container").clone();
+    opt = $("div#option-section .option-div").clone();
+
+    var week_date = new Date(new Date().setDate(new Date().getDate() + 7))
+        .toISOString()
+        .split("T")[0];
+
+    var today = new Date()
+        .toISOString()
+        .split("T")[0];
+    $("#expiry-date").val(week_date).attr({ min: today });
+
+
+    $("form").append($("#setting").clone());
+    $("#add-questions").click();
+
 }
 
-$(document).on("click", ".nav-item", function(){
-    if ($.trim($(this).text()).toLowerCase() == 'Present'.toLowerCase()){
+
+
+$(document).on("click", ".nav-item", function() {
+    if ($.trim($(this).text()).toLowerCase() == 'Present'.toLowerCase()) {
         $('#present-status').prop("checked", true);
-    }else{
+    } else {
         $('#absent-status').prop("checked", true);
     }
 })
 
 
-$(document).on("click", "#submit", function () {
+$(document).on("click", "#submit", function() {
     $('#submit').prop({ "disabled": true });
 
     var status = $("input[name='status']:checked").val();
@@ -45,7 +76,7 @@ $(document).on("click", "#submit", function () {
                 '<button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal" id="back-modal">Cancel</button><button type="button" class="btn btn-primary btn-sm mark-absent">Mark Absent</button>'
             );
         $("#exampleModalCenter").modal("show");
-    }else{
+    } else {
         submitForm();
     }
 });
@@ -55,18 +86,18 @@ $(document).on('click', '.mark-absent', function() {
 });
 
 
-$(document).on('click', '#back-modal', function () {
+$(document).on('click', '#back-modal', function() {
     $('#submit').prop("disabled", false);
 });
 
 function submitForm() {
     actionSDK
         .executeApi(new actionSDK.GetContext.Request())
-        .then(function (response) {
+        .then(function(response) {
             console.info("GetContext - Response: " + JSON.stringify(response));
             createAction(response.context.actionPackageId);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.error("GetContext - Error: " + JSON.stringify(error));
         });
 }
@@ -80,48 +111,40 @@ function createAction(actionPackageId) {
     var lat = $("#latitude").val();
     var long = $("#longitutde").val();
     var notes = ($('#notes:visible').length > 0) ? $("#notes").val() : $("#absent-notes").val();
-    
+
     var expiry_time = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
     var properties = [];
-    properties.push(
-        {
-            name: "Attendance Date",
-            type: "Date",
-            value: attendance_date,
-        },
-        {
-            name: "Attendance Time",
-            type: "Time",
-            value: attendance_time,
-        },
-        {
-            name: "Attendance Status",
-            type: "Text",
-            value: attendance_status,
-        },
-        {
-            name: "Latitude",
-            type: "Text",
-            value: lat,
-        },
-        {
-            name: "Longitude",
-            type: "Text",
-            value: long,
-        },
-        {
-            name: "Address",
-            type: "LargeText",
-            value: address,
-        },
-        {
-            name: "Notes",
-            type: "LargeText",
-            value: notes,
-        });
+    properties.push({
+        name: "Attendance Date",
+        type: "Date",
+        value: attendance_date,
+    }, {
+        name: "Attendance Time",
+        type: "Time",
+        value: attendance_time,
+    }, {
+        name: "Attendance Status",
+        type: "Text",
+        value: attendance_status,
+    }, {
+        name: "Latitude",
+        type: "Text",
+        value: lat,
+    }, {
+        name: "Longitude",
+        type: "Text",
+        value: long,
+    }, {
+        name: "Address",
+        type: "LargeText",
+        value: address,
+    }, {
+        name: "Notes",
+        type: "LargeText",
+        value: notes,
+    });
 
-    var opt = [
-        {
+    var opt = [{
             name: 'Attendance Date',
             displayName: attendance_date
         },
@@ -152,15 +175,13 @@ function createAction(actionPackageId) {
     ];
 
     var i = 1;
-    var dataColumns = [
-        {
-            name: i.toString(),
-            displayName: 'Mark Attendance',
-            valueType: actionSDK.ActionDataColumnValueType.LargeText,
-            allowNullValue: false,
-            options: opt
-        }
-    ];
+    var dataColumns = [{
+        name: i.toString(),
+        displayName: 'Mark Attendance',
+        valueType: actionSDK.ActionDataColumnValueType.LargeText,
+        allowNullValue: false,
+        options: opt
+    }];
     // properties.push(getcorrectanswers);
     console.log('properties: ' + JSON.stringify(properties));
     var action = {
@@ -183,17 +204,17 @@ function createAction(actionPackageId) {
     var request = new actionSDK.CreateAction.Request(action);
     actionSDK
         .executeApi(request)
-        .then(function (response) {
+        .then(function(response) {
             console.info("CreateAction - Response: " + JSON.stringify(response));
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.error("CreateAction - Error: " + JSON.stringify(error));
         });
 }
 
 
 function generateGUID() {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
         var r = (Math.random() * 16) | 0,
             v = c == "x" ? r : (r & 0x3) | 0x8;
         return v.toString(16);

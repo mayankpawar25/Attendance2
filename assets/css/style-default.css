@@ -1,9 +1,10 @@
 @charset "utf-8";
-
-/* CSS Document */
-
 body {
-    background-color: #ffffff !important;
+    background-color: transparent !important;
+    font-family: "Segoe UI";
+    font-weight: 300;
+    font-size: 0.875rem;
+    color: #252423;
 }
 
 * {
@@ -11,111 +12,67 @@ body {
     padding: 0px;
 }
 
-.header {
-    position: fixed;
-    background-color: #fff;
-    padding: 5px 15px;
-    width: 100%;
-    left: 0px;
-    top: 0px;
-    box-shadow: 0px 5px 22px rgba(0, 0, 0, 0.1);
+.app-black-color {
+    color: #252423;
 }
 
-.header h1 {
-    float: left;
-    font-size: 14px;
+.app-gray-02_labels-subheads-attributions-icon {
+    color: #484644;
 }
 
-.header img {
-    float: left;
-    margin-top: 8px;
-    margin-right: 25px;
+.app-black-color {
+    color: #252423;
 }
 
-.header small {
-    font-weight: 300;
+.app-gray-03_message-previews-help {
+    color: #605E5C;
 }
 
-.header .link {
-    color: #0592f7;
-    float: right;
-    text-decoration: none;
-    margin-right: 20px;
-    margin-top: 10px;
+.app-gray-04_timestamps {
+    color: #979593;
 }
 
-.container {}
+.app-gray-06_disabled-text {
+    color: #C8C6C4;
+}
+
+.app-gray-08_separators-borders-channel-dividers-banner-bg {
+    background-color: #E1DFDD;
+}
+
+.app-gray-10_for-card-bg {
+    background-color: #F3F2F1;
+}
+
+.app-black-bg {
+    background-color: #252423;
+}
+
+.app-gray-02-color {
+    color: #484644;
+}
+
+.app-gray-02-bg {
+    background-color: #484644;
+}
+
+.card-bg {
+    background-color: #F3F2F1;
+}
+
+.card-border {
+    border: 1px solid #E1DFDD
+}
 
 .form-group {
-    margin-bottom: 15px;
-}
-
-.card {
-    background-color: #fff;
-    padding: 15px !important;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    background-color: #6264a7;
-    width: 30px;
-    height: 30px;
-    transform: rotate(45deg);
-    left: -15px;
-    top: -15px;
-    position: absolute;
-}
-
-.button {
-    background-color: #0591ff;
-    color: #fff;
-    padding: 15px;
-    border: none;
-    width: 100%;
-    border-radius: 2px;
-}
-
-.choice-group {
-    display: flex;
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.choice-group li {
-    width: auto;
-    display: contents;
-}
-
-.remove {
-    width: 50px;
-    background-color: transparent;
-    border: 1px solid #ddd;
-}
-
-.add-more {
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 2px;
 }
 
 .close {
     float: right;
     text-decoration: none;
     color: #000;
-}
-
-.card h2 {
-    font-size: 12px;
 }
 
 form {
@@ -139,8 +96,8 @@ form {
 
 .btn-primary {
     color: #fff;
-    background-color: #6264a7 !important;
-    border-color: #6264a7 !important;
+    background-color: #6264A7 !important;
+    border-color: #6264A7 !important;
 }
 
 .btn-primary:hover {
@@ -190,87 +147,7 @@ form {
 label {
     display: inline-block;
     margin-bottom: 8px !important;
-}
-
-.project-tab {
-    padding: 10%;
-    margin-top: -8%;
-}
-
-.project-tab #tabs {
-    background: #007b5e;
-    color: #eee;
-}
-
-.project-tab #tabs h6.section-title {
-    color: #eee;
-}
-
-.project-tab .nav-link {
-    border: 1px solid transparent;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-    color: #0062cc;
-}
-
-.project-tab .nav-link:hover {
-    border: none;
-}
-
-.project-tab thead {
-    background: #f3f3f3;
-    color: #333;
-}
-
-.project-tab a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-}
-
-.hide {
-    display: none;
-}
-
-.getresult {
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.getresult span {
-    color: #4e508a;
-    text-decoration: underline;
-}
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #4e508a !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
-.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #0062cc;
-    background-color: transparent;
-    border-color: transparent transparent #f3f3f3;
-    border-bottom: 2px #4e508a solid !important;
-}
-
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-    border-color: transparent;
-}
-
-.nav-fill .nav-item {
-    font-weight: 600;
-}
-
-
-/* new style */
-
-a {
-    color: #333 !important
+    color: #484644
 }
 
 .table thead th {
@@ -338,27 +215,6 @@ strong {
     font-size: 1rem !important;
 }
 
-body {
-    font-weight: 300;
-    font-size: 0.875rem;
-}
-
-.app-black-color {
-    color: #252423;
-}
-
-.app-black-bg {
-    background-color: #252423;
-}
-
-.app-gray-02-color {
-    color: #484644;
-}
-
-.app-gray-02-bg {
-    background-color: #484644;
-}
-
 .modal-title {
     font-size: 18px;
     font-weight: 500;
@@ -387,12 +243,13 @@ body {
 }
 
 .in-t {
-    background-color: rgb(243, 242, 241) !important;
+    background-color: #E1DFDD !important;
     border-radius: 0px !important;
     border: none !important;
     border-bottom: 2px solid rgb(243, 242, 241) !important;
     transition: all ease-in-out 0.3s;
-    font-size: 13px;
+    height: 32px;
+    padding: 8px 12px;
 }
 
 .in-t:focus {
@@ -410,15 +267,13 @@ body {
 }
 
 .card-box {
-    border: 1px solid #edebe9;
     margin-bottom: 16px;
     padding: 16px;
-    background-color: #f9f9f9;
     position: relative;
 }
 
 .card-box-alert {
-    border: 1px solid #edebe9;
+    border: 1px solid #CC4A31;
     margin-bottom: 16px;
     padding: 16px;
     background-color: #fce2e5;
@@ -426,7 +281,7 @@ body {
 }
 
 .card-box-alert .text-danger {
-    color: #c4314b;
+    color: #CC4A31;
 }
 
 .input-tpt {
@@ -443,10 +298,10 @@ body {
 }
 
 .input-group-tpt .in-t {
-    background-color: rgb(243, 242, 241) !important;
+    background-color: #E1DFDD !important;
     border-radius: 0px !important;
     border: none !important;
-    border-bottom: 2px solid rgb(243, 242, 241) !important;
+    border-bottom: 2px #E1DFDD !important;
     transition: all ease-in-out 0.3s;
     font-size: 13px;
 }
@@ -527,6 +382,10 @@ body {
     margin-top: -3px;
 }
 
+.mt-3 {
+    margin-top: -3px !important
+}
+
 .footer {
     position: fixed;
     bottom: 0px;
@@ -565,71 +424,44 @@ a.theme-color:hover {
     cursor: pointer;
 }
 
-.custom-control-input:checked~.custom-control-label::before {
-    color: #fff;
-    border-color: rgb(98, 100, 167);
-    background-color: rgb(98, 100, 167)
-}
-
-.btn:focus {
-    outline: none;
-    box-shadow: none;
-}
-
 .close {
     opacity: 1;
 }
 
-#hide1 {
-    margin-top: 5px;
-    display: block;
+.close {
+    float: right;
+    text-decoration: none;
+    color: #000;
 }
 
-#hide2 {
-    margin-top: 5px;
-    display: block;
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    height: 21px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
 }
 
-.close span {
-    outline: none;
-    box-shadow: none;
-}
-
-.mt--4 {
-    margin-top: -4px;
-}
-
-button:focus {
-    outline: none !important;
-}
-
-.alert {
-    border-radius: 3px;
-}
-
-.alert-normal {
-    color: #333 !important;
-    background-color: #f8f8f8 !important;
-    border-color: #ddd !important;
-}
-
-.alert-normal i {
-    top: 5px;
-    right: 10px;
-    position: absolute;
+hr {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 
 .pb-100 {
     padding-bottom: 100px;
 }
 
-.ht-100 {
-    height: 100px !important;
-    width: 100%;
+.hide {
+    display: none;
 }
 
-.pb-10 {
-    padding-bottom: 100px;
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: inherit;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 
@@ -672,7 +504,7 @@ button:focus {
     z-index: 1;
 }
 
-/ .left {
+.left {
     left: 0;
 }
 
@@ -729,6 +561,26 @@ button:focus {
     background-color: #fbf7eb;
 }
 
+.nav-link {
+    display: block;
+    padding: .5rem 0rem;
+}
+
+.nav-link.active .btn-primary {
+    color: #fff;
+    background-color: #4e508a !important;
+    border-color: #4e508a !important;
+}
+
+.content hr {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.text-danger {
+    color: #CC4A31;
+}
+
 @media screen and (max-width: 800px) {
     .timeline::after {
         left: 0px;
@@ -736,7 +588,7 @@ button:focus {
     .container-t {
         width: 100%;
         padding-left: 30px;
-        padding-right: 25px;
+        padding-right: 0px;
     }
     .container-t::before {
         left: 20px;

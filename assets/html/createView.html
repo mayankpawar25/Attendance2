@@ -10,8 +10,9 @@
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
     <!-- <script src="./node_modules/action-sdk-sunny/dist/ActionSDK.min.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style-default.css" rel="stylesheet" id="theme" />
 
 </head>
@@ -38,8 +39,16 @@
                             <div class="col-md-12">
                                 <label><strong>Select status</strong></label>
                                 <ul id="tabs" class="nav nav-tabs nav-fill">
-                                    <li class="nav-item"><a href="" data-target="#present" data-toggle="tab" class="nav-link small text-uppercase active">Present</a></li>
-                                    <li class="nav-item"><a href="" data-target="#absent" data-toggle="tab" class="nav-link small text-uppercase">Absent</a></li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#present" data-toggle="tab" class="nav-link small text-uppercase active">
+                                            <button class="btn btn-block btn-primary">Present</button>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" data-target="#absent" data-toggle="tab" class="nav-link small text-uppercase">
+                                            <button class="btn btn-block btn-primary">Absent</button>
+                                        </a>
+                                    </li>
                                 </ul>
                                 <br>
                                 <div id="tabsContent" class="tab-content">

@@ -1,12 +1,45 @@
 import * as actionSDK from "action-sdk-sunny";
 
-$(document).ready(function () {
-    removeLoader();
+$(document).ready(function() {
     // OnPageLoad();
+    let request = new actionSDK.GetContext.Request();
+    getTheme(request);
 });
 
-async function removeLoader(){
+async function removeLoader() {
     await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+}
+
+async function getTheme(request) {
+    let response = await actionSDK.executeApi(request);
+    let context = response.context;
+    $("form.section-1").show();
+    var theme = context.theme;
+    $("link#theme").attr("href", "css/style-" + theme + ".css");
+
+    $('form.sec1').append(form_section);
+    $('form.sec1').after(modal_section);
+    $('form.sec1').after(setting_section);
+    $('form.sec1').after(option_section);
+    $('form.sec1').after(questions_section);
+
+    question_section = $("#question-section div.container").clone();
+    opt = $("div#option-section .option-div").clone();
+
+    var week_date = new Date(new Date().setDate(new Date().getDate() + 7))
+        .toISOString()
+        .split("T")[0];
+
+    var today = new Date()
+        .toISOString()
+        .split("T")[0];
+    $("#expiry-date").val(week_date).attr({ min: today });
+
+    await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+
+    $("form").append($("#setting").clone());
+    $("#add-questions").click();
+
 }
 
 let actionContext = null;
@@ -23,12 +56,12 @@ function OnPageLoad() {
 
     actionSDK
         .executeApi(new actionSDK.GetContext.Request())
-        .then(function (response) {
+        .then(function(response) {
             console.info("GetContext - Response: " + JSON.stringify(response));
             actionContext = response.context;
             getDataRows(response.context.actionId);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.error("GetContext - Error: " + JSON.stringify(error));
         });
 }
@@ -48,7 +81,7 @@ function getDataRows(actionId) {
 
     actionSDK
         .executeBatchApi(batchRequest)
-        .then(function (batchResponse) {
+        .then(function(batchResponse) {
             console.info("BatchResponse: " + JSON.stringify(batchResponse));
             actionInstance = batchResponse.responses[0].action;
             actionSummary = batchResponse.responses[1].summary;
@@ -56,7 +89,7 @@ function getDataRows(actionId) {
             actionDataRowsLength = actionDataRows == null ? 0 : actionDataRows.length;
             createBody();
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log("Console log: Error: " + JSON.stringify(error));
         });
 }
@@ -232,7 +265,7 @@ function getNonresponders() {
     }
 }
 
-$(document).on('click', '.getresult', function () {
+$(document).on('click', '.getresult', function() {
 
     var userId = $(this).attr('id');
     console.log(userId);
@@ -336,7 +369,7 @@ function isJson(str) {
     return true;
 }
 
-$(document).on('click', '.back', function () {
+$(document).on('click', '.back', function() {
     $('.attendance-content ').hide();
     createBody();
 });
