@@ -1,8 +1,13 @@
 import * as actionSDK from "action-sdk-sunny";
 
 $(document).ready(function () {
-    OnPageLoad();
+    removeLoader();
+    // OnPageLoad();
 });
+
+async function removeLoader(){
+    await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+}
 
 let actionContext = null;
 let actionInstance = null;
@@ -15,6 +20,7 @@ let myUserId = "";
 var root = document.getElementById("root");
 
 function OnPageLoad() {
+
     actionSDK
         .executeApi(new actionSDK.GetContext.Request())
         .then(function (response) {

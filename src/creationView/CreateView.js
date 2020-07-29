@@ -12,7 +12,12 @@ $(document).ready(function () {
     var dt = new Date();
     var time = ("00" + dt.getHours()).substr(-2) + ":" + ("00" + dt.getMinutes()).substr(-2);
     $('#attendance-time').val(time).prop({ 'min': time });
+    removeLoader();
 });
+
+async function removeLoader() {
+    await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+}
 
 $(document).on("click", ".nav-item", function(){
     if ($.trim($(this).text()).toLowerCase() == 'Present'.toLowerCase()){
