@@ -21,22 +21,22 @@
                                 "width": "stretch",
                                 "items": [
                                     {
-                                        "id": "Expiry",
-                                        "type": "TextBlock",
-                                        "text": "${if(equals(action.status, 'Active'), 'Attendance Active','Attendance Expired')}",
-                                        "color": "${if(equals(action.status, 'Active'), 'default','attention')}",
-                                        "size": "small",
-                                        "wrap": true
-                                    },
-                                    {
                                         "id": "Title",
                                         "type": "TextBlock",
-                                        "text": "${action.displayName}",
+                                        "text": "${action.dataTables[0].dataColumns[0].options[2].displayName}",
                                         "size": "large",
                                         "maxLines": 3,
                                         "wrap": true,
                                         "weight": "bolder",
                                         "spacing": "small"
+                                    },
+                                    {
+                                        "id": "Reason",
+                                        "type": "TextBlock",
+                                        "text": "${action.dataTables[0].dataColumns[0].options[6].displayName}",
+                                        "size": "small",
+                                        "maxLines": 3,
+                                        "wrap": true
                                     }
                                 ]
                             }
@@ -57,7 +57,7 @@
                                 "items": [
                                     {
                                         "type": "TextBlock",
-                                        "text": "Till: ${action.dataTables[0].dataColumns[0].options[0].displayName}, ${action.dataTables[0].dataColumns[0].options[1].displayName}",
+                                        "text": "Time: ${action.customProperties[0].value}",
                                         "size": "medium",
                                         "wrap": true,
                                         "spacing": "medium"
@@ -65,63 +65,14 @@
                                 ]
                             }
                         ]
-                    },
-                    {
-                        "type": "ColumnSet",
-                        "columns": [
-                            {
-                                "type": "Column",
-                                "width": "auto",
-                                "items": [
-                                    
-                                ]
-                            },
-                            {
-                                "type": "Column",
-                                "width": "auto",
-                                "items": [
-                                    
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "type": "ColumnSet",
-                "columns": [
-                    {
-                        "type": "Column",
-                        "width": "stretch",
-                        "items": [
-                            {
-                                "id": "Summary",
-                                "type": "TextBlock",
-                                "text": "${if(summary.rowCreatorCount > 0, summary.rowCreatorCount + ' Responded', 'Be the first one to respond')}",
-                                "size": "small",
-                                "weight": "bolder",
-                                "maxLines": 2,
-                                "wrap": true,
-                                "spacing": "small"
-                            }
-                        ]
                     }
                 ]
             }
         ],
         "actions": [
-            /* {
-                "id": "RespondButton",
-                "$when": "${equals(action.status, 'Active')}",
-                "title": "Respond",
-                "command": "LaunchActionPackageView",
-                "parameters": {
-                    "viewName": "UpdateView"
-                }
-            }, */
             {
                 "id": "ResultButton",
-                "title": "View Result",
+                "title": "History",
                 "command": "LaunchActionPackageView",
                 "parameters": {
                     "viewName": "DetailView"

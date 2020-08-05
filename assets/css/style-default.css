@@ -565,12 +565,16 @@ hr {
     display: block;
     padding: .5rem 0rem;
 }
-
+.nav-link .btn-primary {
+    background-color: transparent !important;
+    color: #6264A7 !important;
+}
 .nav-link.active .btn-primary {
-    color: #fff;
+    color: #fff !important;
     background-color: #4e508a !important;
     border-color: #4e508a !important;
 }
+
 
 .content hr {
     margin-top: .5rem;

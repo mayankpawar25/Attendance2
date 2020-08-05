@@ -112,16 +112,24 @@ function createAction(actionPackageId) {
     var long = $("#longitutde").val();
     var notes = ($('#notes:visible').length > 0) ? $("#notes").val() : $("#absent-notes").val();
 
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    var dt = new Date();
+    var at_time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    var at_date = `${days[dt.getDay()]}, ${(dt.getDate() < 10 ? '0' : dt.getDate()) + dt.getDate()} ${monthNames[dt.getMonth()]}, ${dt.getFullYear()} ${dt.getHours()}:${dt.getMinutes()} ${(dt.getHours() >= 12 ? 'PM' : 'AM')}`;
+
     var expiry_time = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
     var properties = [];
     properties.push({
         name: "Attendance Date",
         type: "Date",
-        value: attendance_date,
+        value: at_date,
     }, {
         name: "Attendance Time",
         type: "Time",
-        value: attendance_time,
+        value: at_time,
     }, {
         name: "Attendance Status",
         type: "Text",
@@ -144,35 +152,36 @@ function createAction(actionPackageId) {
         value: notes,
     });
 
-    var opt = [{
-            name: 'Attendance Date',
-            displayName: attendance_date
-        },
-        {
-            name: 'Attendance Time',
-            displayName: attendance_time
-        },
-        {
-            name: 'Attendance Status',
-            displayName: attendance_status
-        },
-        {
-            name: 'Latitude',
-            displayName: lat
-        },
-        {
-            name: 'Longitude',
-            displayName: long
-        },
-        {
-            name: 'Address',
-            displayName: address
-        },
-        {
-            name: 'Notes',
-            displayName: notes
-        }
-    ];
+    var opt = [
+                {
+                    name: 'Attendance Date',
+                    displayName: at_date
+                },
+                {
+                    name: 'Attendance Time',
+                    displayName: at_time
+                },
+                {
+                    name: 'Attendance Status',
+                    displayName: attendance_status
+                },
+                {
+                    name: 'Latitude',
+                    displayName: lat
+                },
+                {
+                    name: 'Longitude',
+                    displayName: long
+                },
+                {
+                    name: 'Address',
+                    displayName: address
+                },
+                {
+                    name: 'Notes',
+                    displayName: notes
+                }
+            ];
 
     var i = 1;
     var dataColumns = [{

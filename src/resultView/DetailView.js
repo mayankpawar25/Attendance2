@@ -12,12 +12,15 @@ async function removeLoader() {
 
 async function getTheme(request) {
     let response = await actionSDK.executeApi(request);
+
     let context = response.context;
     $("form.section-1").show();
     var theme = context.theme;
     $("link#theme").attr("href", "css/style-" + theme + ".css");
 
-    $('form.sec1').append(form_section);
+    await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
+
+   /*  $('form.sec1').append(form_section);
     $('form.sec1').after(modal_section);
     $('form.sec1').after(setting_section);
     $('form.sec1').after(option_section);
@@ -35,10 +38,9 @@ async function getTheme(request) {
         .split("T")[0];
     $("#expiry-date").val(week_date).attr({ min: today });
 
-    await actionSDK.executeApi(new actionSDK.HideLoadingIndicator.Request());
 
     $("form").append($("#setting").clone());
-    $("#add-questions").click();
+    $("#add-questions").click(); */
 
 }
 
